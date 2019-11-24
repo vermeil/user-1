@@ -1,0 +1,235 @@
+.content{
+    padding: 10px 5px;
+} 
+.a_alert{
+    float: left;
+    width: 100%;
+}
+.content-chart:hover .triangle_border_down{   
+    display: block;
+}  
+/*三角形*/
+    /*向下*/
+    .triangle_border_down{
+        display: none;
+        position: absolute;
+        bottom: -15px;
+        right: calc(15% - 15px);
+        width:0;
+        height:0;
+        border-width:15px 15px 0;
+        border-style:solid;    
+    	border-color: rgb(40, 127, 151) transparent;
+    } 
+
+/*单选*/
+.top-btn .checkbox { 
+    float: left; 
+    margin: 4px 20px 0 0;
+    color: #2cedff;
+}
+	.top-btn .checkbox label{  
+    	padding-left: 10px;
+	}
+	.checkbox label [type="radio"]{ 
+	    height: 17px;
+    	margin-right: 4px;
+	    vertical-align: bottom;
+	}
+/*线*/
+.railway-line{ 
+	overflow: auto;
+/*	height: 120px;
+    padding: 30px 0 0 15px;*/
+    height: 130px;
+    margin-top:20px;
+    padding: 35px 0px 0px 15px;
+} 
+.railway-line .zhan-box{  
+    width: max-content; 
+    overflow-x: auto;
+    overflow-y: visible; 
+}
+.railway-line .line{
+	position: relative;  
+    top: 12px;
+    height: 4px;
+    background-image: url(../img/hei6.png);
+}
+.railway-line .zhan{
+	float: left;
+	position: relative; 
+    width: 130px; 
+    padding-bottom: 5px;
+}
+	.railway-line .zhan:hover .line-radius{ 
+	    background: #19cdbf;
+    	box-shadow: 0 0 12px #19cdbf;
+	} 
+	.railway-line .zhan:hover .line-radius-active{  
+	    background: #19cdbf;
+    	box-shadow: 0 0 12px #55d5c9;
+	} 
+	.railway-line .line-radius{ 
+	    position: absolute;
+	    right: calc(50% - 10px);
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    background: rgb(255, 244, 221);
+		cursor: pointer;
+		transition: all 0.6s; 
+	}
+	.railway-line .line-radius-active{ 
+    	background: #19cdbf;
+	} 
+	.railway-line .line-radius-active +  .line-text{ 
+	    color: #25d1c3;
+	}
+	.railway-line .line-text{ 
+	    padding-top: 35px;
+	    width: 100%;    
+	    color: #fff;
+	    text-align: center;
+		cursor: pointer;
+	}
+
+/*上下行*/ 
+.up-down-xing{ 
+	overflow: auto;  
+    padding: 0px 0 20px 15px; 
+} 
+.up-down-xing:hover , .railway-line:hover{  
+    box-shadow: 0 2px 30px #234761;
+} 
+.up-down-xing-title{ 
+    float: left;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 30px; 
+    padding-bottom:15px;
+    margin-top:15px;
+    border-bottom: 1px solid #496a81;
+    line-height: 30px;
+}
+.up-xing-tit ,.down-xing-tit { 
+    float: left;
+    width: 50px;
+    margin-left: -30px;
+    margin-top: -65px;
+    height: 100%;
+    font-weight: 700;
+}
+/*.up-down-xing .up-dowm-box{  
+    width: max-content; 
+    overflow-x: auto;
+    overflow-y: visible;   
+    height: 100%;
+}*/
+.up-down-xing .line{
+	position: relative;  
+    top: 12px;
+    left: -30PX;
+    height: 4px;
+    background-image: url(../img/hei6.png);
+}
+.up-down-xing .zhu{
+	float: left;
+	position: relative; 
+    width: 70px; 
+    padding-bottom: 5px;
+}
+   .up-down-xing .zhu .line-zhu{  
+	    position: absolute;
+	    width: 19px;
+	    height: 43px;
+	    top: -35px;
+     	background-image: url(../img/prop2.png);
+	    cursor: pointer;
+   }
+	.up-xing , .down-xing{ 
+	    float: left;  
+	    width: max-content;
+    	min-width: 100%;
+	    overflow-x: auto;
+	    overflow-y: visible;
+    	padding-left: 30px;
+    	padding-top: 80px;
+	}  
+	.up-down-xing .line-text{ 
+	    position: absolute;
+	    top: -47px;
+	    height:55px;
+	    width: 100%;
+	    color: #a94442;
+	    text-align: center;
+	    cursor: pointer;
+	} 
+		.line-text .text-radius{ 
+		    float: left;
+		    width: 70px;
+		    height: 20px;
+		    background: #38b1ff;
+		    color: #fff;
+		    margin-left: 20px;
+		    margin-bottom: 5px;
+		    border-radius: 10px;
+		    line-height: 20px; 
+		    transition: all 0.6s;
+		}
+		.line-text .text-radius:hover{ 
+    		background: #329add;
+		}
+	.up-down-xing .line-ind{  
+	    padding: 1px;
+	    margin-top: 14px;
+	    width: 80%;
+	    text-align: center;
+	    margin-left: -36%;
+/*    	border: 1px #2c5c5c solid;
+	    border-top: none;*/ 
+    	border: none;
+	    border-bottom: 1px #2c5c5c solid;
+	    border-radius: 0 0 3PX 3PX;
+	    cursor: pointer;
+	    transition: all 0.6s; 
+	}
+	.up-down-xing .zhu:hover .line-ind{ 
+    	border-color: #52b8bc;
+    	box-shadow: inset 0 -5px 5px rgba(25, 205, 191, 0.23);
+	}
+
+/*其他设备*/
+	.ud-xing .up-xing{ 
+    	padding-top: 30px;
+    	padding-left: 15px;
+	}
+	.ud-xing .zhu{
+		width: 50px;
+	}
+	.ud-xing .zhu:hover .line-radius{ 
+	    background: #19cdbf;
+	    box-shadow: 0 0 12px #19cdbf;
+	}
+    .ud-xing  .zhu .line-radius{ 
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    background: rgb(255, 244, 221);
+	    cursor: pointer;
+	    transition: all 0.6s;
+    }
+    .ud-xing .line-ind{ 
+	    padding: 1px;
+	    margin-top: 4px;
+	    width: 80%;
+	    text-align: center;
+	    margin-left: -21%;
+	    border: none;
+	    border-bottom: 1px #2c5c5c solid;
+	    border-radius: 0 0 3PX 3PX;
+	    cursor: pointer;
+	    transition: all 0.6s;
+	}

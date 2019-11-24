@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="js/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- <script src="js/highcharts-V6.1.js"></script> 
+<script src="js/highcharts6.1.1-3d.js"></script> -->
+<!-- <link rel="stylesheet" href="css/components.css"> -->
+<link rel="stylesheet" href="css/list.css">
+<link rel="stylesheet" href="css/default.css">
+<style>
+    .left-list{
+        display: none;
+    }
+</style>
+<body>
+<div class="head" id="head">
+    <div class="title" onclick="location.reload()">
+        <a>通话人关系分析的图形展示系统</a>
+    </div>
+    <ul>
+        <li class="li-active">
+            <a>首页</a>
+        </li>
+        <li>
+            <a>通话表</a>
+        </li>
+        <li>
+            <a>手机运营商</a>
+        </li>
+        <li>
+            <a>主叫和被叫关系表</a>
+        </li>
+        <li>
+            <a>用户表</a>
+        </li>
+        <li>
+            <a>基站信息</a>
+        </li> 
+        <li>
+            <a>运行商部分</a>
+        </li> 
+    </ul>
+</div>
+<div class="left-list">
+    <ul>
+        <li class="left-active">
+            <a>工务处填报</a>
+        </li>
+        <li>
+            <a>电务处填报</a>
+        </li>
+        <li>
+            <a>供电处填报</a>
+        </li>
+        <li>
+            <a>铁路局查询</a>
+        </li>
+        <li>
+            <a>总公司查询</a>
+        </li>
+        <li>
+            <a>填表时间统计</a>
+        </li> 
+    </ul>
+</div>
+<div class="content"> 
+    <iframe  name="content_frame" id="z" marginwidth=0 marginheight=0  src="./list/index0.html" frameborder=0></iframe> 
+</div>
+<script>
+// window.onload = function (){
+//     var fbody = window.frames["content_frame"].document.getElementById("content");
+//     var a = fbody.getElementsByTagName('div')[0]
+//     var b = $("#z").contents().find("#content").text();
+//     console.log(a);
+// }
+</script>
+<script src="js/list_index.js"></script>
+</body>
+</html>

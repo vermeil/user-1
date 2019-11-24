@@ -1,0 +1,418 @@
+.content{
+    padding: 10px 15px;
+} 
+.a_alert{
+    float: left;
+    width: 100%;
+}
+.content-chart:hover .triangle_border_down{   
+    display: block;
+} 
+
+/*三角形*/
+    /*向下*/
+    .triangle_border_down{
+        display: none;
+        position: absolute;
+        bottom: -15px;
+        right: calc(15% - 15px);
+        width:0;
+        height:0;
+        border-width:15px 15px 0;
+        border-style:solid;    
+    	border-color: rgb(40, 127, 151) transparent;
+    } 
+
+/*单选 普铁高铁*/
+.top-btn .checkbox { 
+    float: left; 
+    margin: 4px 20px 0 0;
+    color: #2cedff;
+}
+	.top-btn .checkbox label{  
+    	padding-left: 10px;
+	}
+	.checkbox label [type="radio"]{ 
+	    height: 17px;
+    	margin-right: 4px;
+	    vertical-align: bottom;
+	}
+/* xx站线 */
+.railway-line{  
+    overflow: auto;
+    height: 100px;
+/*    margin-top: 5px;
+    padding: 15px 0px 0 15px;*/
+    margin: 15px 25px 5px;
+    padding: 15px 0px 0 0;
+} 
+.railway-line .zhan-box{  
+    width: max-content; 
+    overflow-x: auto;
+    overflow-y: visible; 
+    /*padding-right: 15px;*/
+    padding-top: 5px;
+}
+.railway-line .zhan-box .line-radius{ 
+    right: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    margin-top: -3px;
+}
+.railway-line .line{
+	position: relative;  
+    top: 12px;
+    height: 4px;
+    background-image: url(../img/hei6.png);
+}
+.railway-line .zhan{
+	float: left;
+	position: relative; 
+    width: 130px; 
+    padding-bottom: 5px;
+}
+	.railway-line .zhan:hover .line-radius{ 
+	    background: #19cdbf;
+    	box-shadow: 0 0 12px #19cdbf;
+	} 
+	.railway-line .zhan:hover .line-radius-active{  
+	    background: #19cdbf;
+    	box-shadow: 0 0 12px #55d5c9;
+	} 
+	.railway-line .line-radius{ 
+	    position: absolute;
+	    right: calc(50% - 10px);
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    background: rgb(255, 244, 221);
+		cursor: pointer;
+		transition: all 0.6s; 
+	}
+	.railway-line .line-radius-active{ 
+    	background: #19cdbf;
+	} 
+	.railway-line .line-radius-active +  .line-text{ 
+	    color: #25d1c3;
+	}
+	.railway-line .line-text{ 
+	    padding-top: 35px;
+	    width: 100%;    
+	    color: #fff;
+	    text-align: center;
+		cursor: pointer;
+	}
+
+/*上下行*/  
+.up-down-xing{   
+	/*overflow: hidden;  */
+    width: 100%;
+	/*overflow: auto;  */
+    padding: 0px 0 20px 15px; 
+} 
+.up-down-xing:hover , .railway-line:hover{  
+    /*box-shadow: 0 -3px 25px #38688b;*/
+    /*box-shadow: 0 2px 25px #234761;*/ 
+    /*box-shadow: 0 0px 16px rgba(31, 107, 110, 0.58);*/
+} 
+.modal-table-title{ 
+    float: left;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 30px; 
+    margin-bottom: 10px; 
+    border-bottom: 1px #266685 dashed;
+    line-height: 45px;
+}
+.up-down-xing-title { 
+    float: left;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 30px; 
+    padding-bottom:15px;
+    margin-top:15px;
+    border-bottom: 1px solid #496a81;
+    line-height: 30px;
+}
+.up-xing-tit ,.down-xing-tit { 
+    float: left;
+    width: 50px;
+    margin-left: -30px;
+    margin-top: -65px;
+    height: 100%;
+    font-weight: 700;
+}
+/*.up-down-xing .up-dowm-box{  
+    width: max-content; 
+    overflow-x: auto;
+    overflow-y: visible;   
+    height: 100%;
+}*/
+.up-down-xing .line{
+	position: relative;  
+    top: 12px;
+    left: -30PX;
+    height: 4px;
+    background-image: url(../img/hei6.png);
+}
+.up-down-xing .zhu{
+	float: left;
+	position: relative; 
+    width: 50px; 
+    /*padding-bottom: 5px;*/
+}
+	/*状态1*/
+   .up-down-xing .zhu .line-zhu{  
+   		opacity: 0.8;
+	    position: absolute;
+	    width: 19px;
+	    height: 43px;
+	    top: -35px;
+     	background-image: url(../img/prop2.png);
+	    cursor: pointer;
+   }
+   .up-down-xing .zhu:hover .line-zhu{  
+   		opacity: 1;
+   }
+	.up-down-xing .xing-active{   
+   		border: 1px rgb(82, 184, 188) solid !important;
+   		border-top: none !important; 
+		box-shadow: inset 0 -3px 14px rgba(46, 255, 239, 0.4);
+	}
+	   /*状态2*/
+	   .up-down-xing .zhu .line-zhu-r{  
+   			opacity: 0.8;
+		    position: absolute;
+		    width: 19px;
+		    height: 43px;
+		    top: -35px;
+	     	background-image: url(../img/prop1.png);
+		    cursor: pointer;
+	   }
+	   .up-down-xing .zhu:hover .line-zhu-r{  
+	   		opacity: 1;
+	   }
+	    .up-down-xing .zhu .line-zhu-r + .line-ind{   
+   			border-bottom: 1px #8d5b45 solid;
+	    } 
+		.up-down-xing .zhu:hover .line-zhu-r + .line-ind{ 
+		    border-color: #fd6725;
+		    box-shadow: inset 0 -5px 5px rgba(205, 100, 25, 0.23);
+		}
+		.up-down-xing  .line-zhu-r + .xing-active{    
+	   		border: 1px #fd6725 solid !important;
+	   		border-top: none !important; 
+		    box-shadow:inset 0 -3px 15px rgba(255, 132, 5, 0.38);
+		}
+	.up-xing , .down-xing{ 
+	    float: left;  
+	    width: max-content;
+    	/*min-width: 100%;*/
+	    overflow-x: auto;
+	    overflow-y: visible;
+    	padding-left: 30px;
+    	padding-top: 80px;
+	}  
+	.up-down-xing .line-text{ 
+	    position: absolute;
+	    top: -47px;
+	    height:55px;
+	    width: 100%;
+	    color: #a94442;
+	    text-align: center;
+	    cursor: pointer;
+	} 
+		.line-text .text-radius{ 
+		    float: left;
+		    width: 70px;
+		    height: 20px;
+		    background: #38b1ff;
+		    color: #fff;
+		    margin-left: 20px;
+		    margin-bottom: 5px;
+		    border-radius: 10px;
+		    line-height: 20px; 
+		    transition: all 0.6s;
+		}
+		.line-text .text-radius:hover{ 
+    		background: #329add;
+		}
+	.up-down-xing .line-ind{  
+	    padding: 1px;
+	    margin-top: 14px;
+	    width: 80%;
+	    text-align: center;
+	    margin-left: -36%;
+/*    	border: 1px #2c5c5c solid;
+	    border-top: none;*/ 
+    	border: none;
+	    border-bottom: 1px #2c5c5c solid;
+	    border-radius: 0 0 3PX 3PX;
+	    cursor: pointer;
+	    transition: all 0.6s; 
+	}
+	.up-down-xing .zhu:hover .line-ind{ 
+    	border-color: #52b8bc;
+    	box-shadow: inset 0 -5px 5px rgba(25, 205, 191, 0.23);
+	}
+
+/*其他设备*/
+	.ud-xing .up-xing{ 
+    	padding-top: 30px;
+    	padding-left: 15px;
+	}
+	.ud-xing .zhu{
+		width: 50px;
+	} 
+	.ud-xing .zhu:hover .line-ind{ 
+    	border-color: #52b8bc;
+    	box-shadow: inset 0 -5px 5px rgba(25, 205, 191, 0.23);
+	}
+    .ud-xing .line-ind{ 
+	    padding: 1px;
+	    margin-top: 4px;
+	    width: 80%;
+	    text-align: center;
+	    margin-left: -21%;
+	    border: none;
+	    border-bottom: 1px #2c5c5c solid;
+	    border-radius: 0 0 3PX 3PX;
+	    cursor: pointer;
+	    transition: all 0.6s;
+	}
+	/*状态1*/
+    .up-down-xing  .zhu .line-radius{ 
+    	opacity: 0.9;
+	    width: 20px;
+	    height: 20px; 
+    	border-radius: 10%;
+	    background: rgb(255, 244, 221);
+	    cursor: pointer;
+	    transition: all 0.6s;
+    } 
+    .up-down-xing .radius-active + .line-ind{ 
+   		border: 1px rgb(82, 184, 188) solid;
+   		border-top: none !important; 
+		box-shadow: inset 0 -3px 12px rgba(46, 255, 239, 0.4);
+    } 
+    .up-down-xing .zhu .line-radius{  
+   		opacity: 1;
+		background: #cd4e19 ;
+		box-shadow: 0 0 9px #ff5615 ;
+   } 
+    .up-down-xing .zhu .line-radius + .line-ind{   
+			border-bottom: 1px #8d5b45 solid;
+    }  
+    .up-down-xing .zhu .line-radius + .ind-active{
+	    border: 1px #fd6725 solid; 
+	    box-shadow: inset 0 -3px 12px rgba(255, 132, 5, 0.38);
+    }  
+	.up-down-xing .zhu:hover .line-radius + .line-ind{ 
+	    border-color: #fd6725 ;
+	    box-shadow: inset 0 -5px 5px rgba(205, 100, 25, 0.23) ;
+	}
+    /* 状态3 */
+       .up-down-xing .zhu .line-radius-g{  
+	   		opacity: 1;
+		    background: #19cdbf !important;
+		    box-shadow: 0 0 9px #19cdbf !important;
+	   } 
+	    .up-down-xing .zhu .line-radius-g + .line-ind{   
+	    	border-bottom: 1px #2c5c5c solid; 
+	    }  
+	    .up-down-xing .zhu .line-radius-g + .ind-active{ 
+	   		border: 1px rgb(82, 184, 188) solid; 
+			box-shadow: inset 0 -3px 12px rgba(46, 255, 239, 0.4);
+	    }  
+		.up-down-xing .zhu:hover .line-radius-g + .line-ind{ 
+	    	border-color: #52b8bc !important;
+	    	box-shadow: inset 0 -5px 5px rgba(25, 205, 191, 0.23) !important; 
+		} 
+ 	/*状态2*/
+       /*.up-down-xing .zhu .line-radius-r{  
+	   		opacity: 1;
+    		background: #cd4e19 !important;
+    		box-shadow: 0 0 9px #ff5615 !important;
+	   } 
+	    .up-down-xing .zhu .line-radius-r + .line-ind{   
+   			border-bottom: 1px #8d5b45 solid;
+	    }  
+	    .up-down-xing .zhu .line-radius-r + .ind-active{
+		    border: 1px #fd6725 solid; 
+		    box-shadow: inset 0 -3px 12px rgba(255, 132, 5, 0.38);
+	    }  
+		.up-down-xing .zhu:hover .line-radius-r + .line-ind{ 
+		    border-color: #fd6725 !important;
+		    box-shadow: inset 0 -5px 5px rgba(205, 100, 25, 0.23) !important;
+		} */
+/*导航条*/
+.xing_scroll{  
+    float: left; 
+    width: 100%;
+    height: 30px;
+    padding: 10px 30px; 
+    margin: 17px 0 30px 0;
+    /*添加站段时*/
+    /*margin: 45px 0 45px 0;*/
+    z-index: 5; 
+    user-select: none;
+}
+	.xing_scroll .slide_rail{
+	    position: relative;
+	    width: 100%;
+	    height: 100%;
+	    border-radius: 5px !important;
+	    background: #285c7b;
+	    cursor: pointer;
+	}
+	.slide_rail .slider {
+	    position: absolute;
+	    top: -8px;
+	    left: 0px;
+	    border-radius: 50% !important;
+	    height: 26px;
+	    width: 26px;
+	    cursor: pointer;
+	    background: #04a6b5;
+	    opacity: 0.7;
+	    z-index: 5;
+	}
+	.slide_rail .slider:hover{
+		opacity: 1;
+	}
+/*导航条标记-站段工区*/
+.xing_scroll .coordinate {
+    position: absolute;
+    top: -28px;
+    left: 63px; 
+    max-width: 70px;
+    overflow: visible; 
+    z-index: 4;
+}
+	.xing_scroll .coordinate .coordinate-text {
+	    position: relative;
+	    left: 50%;
+	    transform: translateX(-100%);
+	    font-size: 12px;
+	    color: #8bffe8;
+	    height: 17px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+    	z-index: 5;
+	}
+	.xing_scroll .coordinate .coordinate-text:hover { 
+    	text-decoration: underline;
+	}
+	.xing_scroll .coordinate .coordinate-rectangle {
+	    position: absolute;
+	    top: 10px;
+	    left: 0;
+	    height: 15px;
+	    width: 3px;
+	    background: rgb(40, 92, 123);
+	}

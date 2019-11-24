@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/highcharts-V6.1.js"></script>  
+<script src="../laydate/laydate.js"></script>
+<script src="../js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/components.css"> 
+<link rel="stylesheet" href="../css/default.css"> 
+<link rel="stylesheet" href="css/index0.css">  
+<body>
+<style>   
+    .catenary2{
+        display: none;
+    }  
+    .ud-xing {
+        display: none; 
+    } 
+    .catenary1 .chart0 { 
+      width: calc(33.33% - 10px); 
+      height: calc(50% - 10px);
+      min-height: 350px;
+    }
+    .catenary2 .chart0{ 
+      width: calc(25% - 10px);  
+      height: calc(33.33% - 10px);
+    }
+    .content-chart-no .con-chart .mode-chart{  
+        height:100%; 
+        background: #1e3a49 !important;
+        border:1px solid #285164;
+        border-radius: 15px;
+    }  
+  /*弹窗图表*/  
+  .ztab .mode-chart{ 
+      height:100%;
+  } 
+ 
+    body .table > tbody > tr >th{ 
+        background: #155e80; 
+        line-height: 30px;
+        color: #ffffff;
+    }
+
+    /*12个表格*/
+    .table_equipment{
+      display: none ;
+    } 
+    .table_equipment1{
+      display: table;
+    } 
+</style>
+<div class="content"> 
+    <!-- <div class="tabs-body">
+        <ul class="nav nav-tabs" id="nav-tabs">
+            <li>
+                <a class="active">按机构分析</a>
+            </li>
+            <li>
+                <a>按线别分析</a>
+            </li>  
+        </ul>  
+    </div>  -->
+    <div class="catenary catenary1"> 
+        <div class="chart-body">
+            <div class="content-chart content-chart-no">
+                <!-- <div class="chart-tit">
+                    <span class="ch-tit">按设备分析</span> 
+                </div> -->
+                <div class="con-chart"> 
+                    <div class="chartp">
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div>
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div>   
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container1"></div>
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="catenary catenary2"> 
+        <div class="chart-body">
+            <div class="content-chart  content-chart-no"> 
+                <div class="con-chart"> 
+                    <div class="chartp">
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div>
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div>  
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div>   
+                        <div class="chart0 content-chart">
+                            <div class="mode-chart container2"></div>
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+<!-- 弹窗 -->
+<div>
+    <!-- tab1  -->
+    <div class="modal fade bs-example-modal-lg" id="modal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog  modal-lgmax" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="a_close btn btn-danger" data-dismiss="modal" aria-label="Close">X</div>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body"> 
+            <div class="top_body"> 
+               
+            </div>
+            <div class="foot"> 
+                <button type="button" class="btn decoration_a " data-dismiss="modal">确定</button>
+                <button type="button" class="btn decoration_a decoration_ar" data-dismiss="modal">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+
+    <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog  modal-lgmax" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="a_close btn btn-danger" data-dismiss="modal" aria-label="Close">X</div>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body"> 
+            <div class="top_body"> 
+              <div class="tabs-body">
+                  <ul class="nav nav-tabs modal-nav-tabs" id="modal-nav-tabs2">
+                      <li>
+                          <a class="active">设备分析</a>
+                      </li>
+                      <li>
+                          <a>设备详情</a>
+                      </li> 
+                  </ul>
+              </div>
+              <div class="ztab ztab_1"> 
+                <div class="chart-body">
+                    <div class="content-chart">
+                        <!-- <div class="chart-tit">
+                            <span class="ch-tit">详情</span> 
+                        </div> -->
+                        <div class="con-chart"> 
+                            <!-- <div class="left-chart-btn">
+                                <div class="laydate-render"> 
+                                    <span class="date1-text">日期:</span>
+                                    <input id="filter_t01" type="text" class="form-control input-small w_220">  
+                                    <div class="btn decoration_a ">查询</div>
+                                </div>
+                            </div> -->
+                            <div class="chartp">
+                                <div class="chart10">
+                                    <div class="mode-chart" id="container23"></div>
+                                </div> 
+                            </div> 
+                        </div>
+                        <!-- 向下的三角形 -->
+                        <!-- <div class="triangle1 triangle_border_down"></div> -->
+                    </div>
+                </div>
+              </div>
+
+              <div class="ztab ztab_2"> 
+                <div class="a_alert">
+                    <div class="a_table"> 
+                       <table  class="table table-bordered table_equipment table_equipment1">
+
+                            <thead>
+                                <tr>
+                            
+                                    <th>区间站场</th>
+                                    <th>锚段号</th>
+                                    <th>支柱号（起）</th>
+                                    <th>支柱号（止）</th>
+                                    <th>公里标（起）</th>
+                                    <th>公里标（止）</th>
+                                    <th>锚段长度（m）</th>
+                                    <th>规格型号</th>
+                                    <th>标称截面积（mm2）</th>
+                                    <th>线索张力（kN）</th>
+                                    <th>速度等级（km/h）</th>
+                                    <th>设计最低高度（mm）</th>
+                                    <th>坡度标准值（‰）</th>
+                                    <th>坡度变化率标准值（‰）</th>
+                                    <th>生产厂家</th>
+                                    <th>联系电话</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>4</td>
+                                <td>10#</td>
+                                <td>56#</td>
+                                <td>K4+279</td>
+                                <td>K3+267</td>
+                                <td>1001.37</td>
+                                <td>CTHA150</td>
+                                <td>150</td>
+                                <td>15</td>
+                                <td>≤120</td>
+                                <td>5700</td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>3</td>
+                                <td>11#</td>
+                                <td>61#</td>
+                                <td>K4+306</td>
+                                <td>K3+243</td>
+                                <td>1037.76</td>
+                                <td>CTHA150</td>
+                                <td>150</td>
+                                <td>15</td>
+                                <td>≤120</td>
+                                <td>5700</td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>NF3</td>
+                                <td>9#</td>
+                                <td>43#</td>
+                                <td>K4+361</td>
+                                <td>K3+563</td>
+                                <td>957.76</td>
+                                <td>LGJ-185</td>
+                                <td>185</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>NF2</td>
+                                <td>月山直通场-沁阳126#</td>
+                                <td>8#</td>
+                                <td>K4+564</td>
+                                <td>K4+339</td>
+                                <td>225</td>
+                                <td>LGJ-185</td>
+                                <td>185</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>NF1</td>
+                                <td>月山直通场-沁阳131#</td>
+                                <td>9#</td>
+                                <td>K4+583</td>
+                                <td>K4+361</td>
+                                <td>222</td>
+                                <td>LGJ-185</td>
+                                <td>185</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>1</td>
+                                <td>月山直通场-沁阳97#</td>
+                                <td>17#</td>
+                                <td>K5+520</td>
+                                <td>K4+141</td>
+                                <td>1410.62</td>
+                                <td>CTHA150</td>
+                                <td>150</td>
+                                <td>15</td>
+                                <td>≤120</td>
+                                <td>5700</td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>2</td>
+                                <td>月山直通场-沁阳88#</td>
+                                <td>16#</td>
+                                <td>K5+637</td>
+                                <td>K4+103</td>
+                                <td>1514</td>
+                                <td>CTHA150</td>
+                                <td>150</td>
+                                <td>15</td>
+                                <td>≤120</td>
+                                <td>5700</td>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr> 
+                            </tnody>
+                       </table>
+                       <table class="table table-bordered table_equipment table_equipment2"> 
+                          <thead> 
+                            <tr>
+                              <th>支柱号：</th>
+                              <th>区段</th>  
+                              <th>一杆一档</th>  
+                              <th>公里标</th>  
+                              <th>隧道</th>  
+                              <th>悬挂情况</th>  
+                              <th>类型</th>   
+                              <th>作用</th>   
+                              <th>规格型号</th>   
+                              <th>材质</th>   
+                              <th>左右侧</th>   
+                              <th>生成厂家</th>  
+                              <th>投运日期</th>  
+                              <th>图纸</th>  
+                              <th>照片</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                            <tr>
+                              <td>南沟隧道2#</td><td>【侯月线】磨滩-盘谷寺 -</td><td></td><td>K182+100</td><td></td>
+                              <td></td><td>支柱</td><td></td><td></td><td></td><td>右侧</td><td></td><td></td><td></td><td></td> 
+                            </tr>
+                          </tbody>
+                       </table> 
+                       <table  class="table table-bordered table_equipment table_equipment3">
+
+                            <thead>
+                              <tr> 
+                                  <th rowspan="3">区段</th>
+                                  <th rowspan="3">支柱号起</th>
+                                  <th rowspan="3">支柱号止</th>
+                                  <th rowspan="3">关节类型</th>
+                                  <th rowspan="3">是否分相关节</th>
+                                  <th rowspan="3">公里标起</th>
+                                  <th rowspan="3">公里标止</th>
+                                  <th colspan="8">两锚段接触悬挂间水平距离（mm）</th>
+                                  <th colspan="8">两锚段接触悬挂间垂直距离（mm）</th>
+                              </tr>
+                              <tr> 
+                                  <th colspan="2">转换柱1</th>
+                                  <th colspan="2">柱2</th>
+                                  <th colspan="2">柱3</th>
+                                  <th colspan="2">转换柱4</th>
+                                  <th colspan="2">转换柱1</th>
+                                  <th colspan="2">柱2</th>
+                                  <th colspan="2">柱3</th>
+                                  <th colspan="2">转换柱4</th>
+                              </tr>
+                              <tr> 
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                                  <th>承力索</th>
+                                  <th>接触线</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>55#</td>
+                                <td>61#</td>
+                                <td>F3</td>
+                                <td>否</td>
+                                <td>K3+376</td>
+                                <td>K3+243</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>200</td>
+                                <td>200</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>200</td>
+                                <td>200</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>50#</td>
+                                <td>56#</td>
+                                <td>F3</td>
+                                <td>否</td>
+                                <td>K3+387</td>
+                                <td>K3+267</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>200</td>
+                                <td>200</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>200</td>
+                                <td>200</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>10#</td>
+                                <td>16#</td>
+                                <td>F3</td>
+                                <td>否</td>
+                                <td>K4+279</td>
+                                <td>K4+103</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>200</td>
+                                <td>200</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>200</td>
+                                <td>200</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>11#</td>
+                                <td>17#</td>
+                                <td>F3</td>
+                                <td>否</td>
+                                <td>K4+306</td>
+                                <td>K4+141</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>200</td>
+                                <td>200</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>200</td>
+                                <td>200</td>
+                                
+                              </tr>  
+                            </tnody>
+                       </table> 
+                       <table  class="table table-bordered table_equipment table_equipment4">
+
+                            <thead>
+                              <tr>
+
+                                <th>线别</th>
+                                <th>区间站场</th>
+                                <th>支柱号</th>
+                                <th>线岔编号</th>
+                                <th>线岔类别</th>
+                                <th>限制管类型</th>
+                                <th>生产厂家</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>43#</td>
+                                <td>N5</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>44#</td>
+                                <td>N7</td>
+                                <td>正线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>46#</td>
+                                <td>N9</td>
+                                <td>正线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>49#</td>
+                                <td>N11</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>250</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>50#</td>
+                                <td>N17</td>
+                                <td>正线</td>
+                                <td></td>
+                                <td>250</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>53#</td>
+                                <td>N19</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>52#</td>
+                                <td>N21</td>
+                                <td>正线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>56#</td>
+                                <td>N23</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>54#</td>
+                                <td>N29</td>
+                                <td>正线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>57#</td>
+                                <td>N31</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>60#</td>
+                                <td>N33</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>62#</td>
+                                <td>N35</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>120#</td>
+                                <td>N62</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>122#</td>
+                                <td>N58</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>375</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>124#</td>
+                                <td>N50</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>125#</td>
+                                <td>N48</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>127#</td>
+                                <td>N46</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>131#</td>
+                                <td>N30</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>太焦线</td>
+                                <td>司徒集配站</td>
+                                <td>132#</td>
+                                <td>N28</td>
+                                <td>侧线</td>
+                                <td></td>
+                                <td>300</td>
+                                
+                              </tr> 
+                            </tnody>
+                       </table>
+                       <table  class="table table-bordered table_equipment table_equipment5"> 
+                            <thead>
+                                  <tr> 
+                                        <th rowspan="2">线别</th>
+                                        <th rowspan="2">区间站场</th>
+                                        <th rowspan="2">道岔编号</th>
+                                        <th rowspan="2">图名</th>
+                                        <th rowspan="2">支柱号</th>
+                                        <th colspan="2">直股接触线</th>
+                                        <th colspan="4">曲股接触线</th>
+                                        <th rowspan="2">支柱号</th>
+                                        <th colspan="2">直股接触线</th>
+                                        <th colspan="4">曲股接触线</th>
+                                        <th rowspan="2">支柱号</th>
+                                        <th colspan="2">直股接触线</th>
+                                        <th colspan="4">曲股接触线</th> 
+                                  </tr>
+                                  <tr>
+                                      <th>拉出值</th>
+                                      <th>导高</th>
+                                      <th>拉出值（min）</th>
+                                      <th>拉出值（max）</th>
+                                      <th>侧线抬高（min）</th>
+                                      <th>侧线抬高（max）</th>
+                                      <th>拉出值</th>
+                                      <th>导高</th>
+                                      <th>拉出值（min）</th>
+                                      <th>拉出值（max）</th>
+                                      <th>侧线抬高（min）</th>
+                                      <th>侧线抬高（max）</th>
+                                      <th>拉出值</th>
+                                      <th>导高</th>
+                                      <th>拉出值</th>
+                                      <th>侧线抬高</th>
+                                  </tr>
+                            </thead> 
+                       </table>   
+                       <table  class="table table-bordered table_equipment table_equipment6"> 
+                            <thead>
+                              <tr> 
+                                <th rowspan="2">线别</th>
+                                <th rowspan="2">区间站场</th>
+                                <th rowspan="2">道岔编号</th>
+                                <th rowspan="2">图名</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">线间距</th>
+                                <th colspan="3">拉出值（mm）</th>
+                                <th colspan="3">导高（mm）</th> 
+                              </tr>
+                              <tr>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                                <th>正线</th>
+                                <th>辅助线</th>
+                                <th>侧线</th>
+                              </tr>
+                            </thead> 
+                       </table>
+                       <table  class="table table-bordered  table_equipment table_equipment7"> 
+                            <thead>
+                              <tr> 
+                                <th>区段</th>
+                                <th>支柱号1</th>
+                                <th>支柱号2</th>
+                                <th>股道号或道岔号</th>
+                                <th>类型</th>
+                                <th>规格型号</th>
+                                <th>零部件供货商厂家</th>
+                                <th>备注</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>63#</td>
+                                <td>63#</td>
+                                <td>侯月引下行</td>
+                                <td>分段</td>
+                                <td>DXF-(1.6)Ⅱ</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>60#</td>
+                                <td>60#</td>
+                                <td>侯月引上行</td>
+                                <td>分段</td>
+                                <td>DXF-(1.6)Ⅱ</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>月山直通场-沁阳126#</td>
+                                <td>4#</td>
+                                <td></td>
+                                <td>分相</td>
+                                <td>XFXP-1.80提速分相</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>月山直通场-沁阳126#</td>
+                                <td>4#</td>
+                                <td>侯月引上行</td>
+                                <td>分相</td>
+                                <td>XFXP-1.80提速分相</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>月山直通场-沁阳131#</td>
+                                <td>5#</td>
+                                <td>侯月引下行</td>
+                                <td>分相</td>
+                                <td>XFXP-1.80提速分相</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>【焦柳线】侯月引 - </td>
+                                <td>月山直通场-沁阳131#</td>
+                                <td>5#</td>
+                                <td></td>
+                                <td>分相</td>
+                                <td>XFXP-1.80提速分相</td>
+                                <td></td>
+                                <td></td>
+                                
+                              </tr>
+                            </tnody>
+                       </table>
+                       <table  class="table table-bordered table_equipment table_equipment8"> 
+                          <thead>
+                            <tr> 
+                              <th>区段</th>
+                              <th>支柱号</th>
+                              <th>开关编号</th>
+                              <th>型号</th>
+                              <th>是否接地闸刀</th>
+                              <th>单极/双极</th>
+                              <th>是否是负荷开关</th>
+                              <th>是否远动</th>
+                              <th>操作电源</th>
+                              <th>零部件供货商厂家</th>
+                              <th>联系电话</th>
+                              <th>备注</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>1#</td>
+                              <td>1#</td>
+                              <td>GW4-27.5</td>
+                              <td>否</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>27#</td>
+                              <td>27#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>29#</td>
+                              <td>29#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>30#</td>
+                              <td>30#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>28#</td>
+                              <td>28#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>31#</td>
+                              <td>31#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>26#</td>
+                              <td>26#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【太焦线】月山机务折返段 - </td>
+                              <td>32#</td>
+                              <td>32#</td>
+                              <td>GW4-27.5/1250DT</td>
+                              <td>有</td>
+                              <td>单</td>
+                              <td>否</td>
+                              <td>否</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                          </tnody>
+                       </table>
+                       <table  class="table table-bordered  table_equipment table_equipment9"> 
+                          <thead>
+                            <tr> 
+                              <th>区段</th>
+                              <th>编号（支柱号）</th>
+                              <th>型号</th>
+                              <th>接地方式</th>
+                              <th>相别</th>
+                              <th>零部件供货商厂家</th>
+                              <th>联系电话</th>
+                              <th>备注</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>【新兖线】长垣-文庄村 - </td>
+                              <td>30#</td>
+                              <td>YH5WT-42/120</td>
+                              <td>单根及接地</td>
+                              <td>T</td>
+                              <td>深圳市银星电力电子有限公司</td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【新兖线】长垣-文庄村 - </td>
+                              <td>29#</td>
+                              <td>YH5WT-42/120</td>
+                              <td>单根及接地</td>
+                              <td>T</td>
+                              <td>深圳市银星电力电子有限公司</td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【新兖线】长垣-文庄村 - </td>
+                              <td>662#</td>
+                              <td>YH5WT-42/120</td>
+                              <td>单根及接地</td>
+                              <td>T</td>
+                              <td>深圳市银星电力电子有限公司</td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>【新兖线】长垣-文庄村 - </td>
+                              <td>661#</td>
+                              <td>YH5WT-42/120</td>
+                              <td>单根及接地</td>
+                              <td>T</td>
+                              <td>深圳市银星电力电子有限公司</td>
+                              <td></td>
+                              <td></td>
+                              
+                            </tr>
+                          </tnody>
+                       </table>
+                       <table  class="table table-bordered  table_equipment table_equipment10"> 
+                            <thead>
+                              <tr> 
+                                <th rowspan="2">区段</th>
+                                <th rowspan="2">支柱号</th>
+                                <th rowspan="2">公里标</th>
+                                <th rowspan="2">支柱所在区段（桥梁段、隧道）</th>
+                                <th rowspan="2">距中锚距离（m）</th>
+                                <th rowspan="2">补偿器类型</th>
+                                <th colspan="2">坠砣串重量(kg)</th>
+                                <th rowspan="2">规格型号</th>
+                                <th rowspan="2">零部件供货商厂家</th>
+                                <th rowspan="2">联系电话</th>
+                                <th rowspan="2">备注</th>
+                              </tr>
+                              <tr> 
+                                <th>承锚</th>
+                                <th>线锚</th>
+                              </tr>
+                            </thead> 
+                       </table>
+                       <table  class="table table-bordered  table_equipment table_equipment11"> 
+                            <thead>
+                              <tr> 
+                                <th rowspan="2">线别</th>
+                                <th rowspan="2">区间站场</th>
+                                <th rowspan="2">行别</th>
+                                <th rowspan="2">分相中心里程</th>
+                                <th colspan="4">磁感应器距离（m）</th>
+                                <th rowspan="2">备注</th> 
+                              </tr>
+                              <tr> 
+                                <th>1#-2#</th>
+                                <th>2#-分相</th>
+                                <th>分相-3#</th>
+                                <th>3#-4#</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>水运村站</td>
+                                <td>下行</td>
+                                <td>211.075</td>
+                                <td>177</td>
+                                <td>27</td>
+                                <td>50</td>
+                                <td>160</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>水运村站</td>
+                                <td>上行</td>
+                                <td>211.529</td>
+                                <td>147</td>
+                                <td>67</td>
+                                <td>45</td>
+                                <td>179</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>盘谷寺-水运村</td>
+                                <td>上行</td>
+                                <td>206.706</td>
+                                <td>170</td>
+                                <td>35</td>
+                                <td>35</td>
+                                <td>170</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>盘谷寺-水运村</td>
+                                <td>下行</td>
+                                <td>206.701</td>
+                                <td>172</td>
+                                <td>34</td>
+                                <td>35</td>
+                                <td>170</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>阳城-磨滩</td>
+                                <td>下行</td>
+                                <td>162+805</td>
+                                <td>170</td>
+                                <td>35</td>
+                                <td>35</td>
+                                <td>170</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>阳城-磨滩</td>
+                                <td>上行</td>
+                                <td>162+809</td>
+                                <td>170</td>
+                                <td>35</td>
+                                <td>35</td>
+                                <td>170</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>磨滩站</td>
+                                <td>下行</td>
+                                <td>181.584</td>
+                                <td>176</td>
+                                <td>36</td>
+                                <td>35</td>
+                                <td>173</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>侯月线</td>
+                                <td>磨滩站</td>
+                                <td>上行</td>
+                                <td>181.591</td>
+                                <td>175</td>
+                                <td>35</td>
+                                <td>35</td>
+                                <td>175</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>新兖线</td>
+                                <td>龙泉村-塔铺</td>
+                                <td>上行</td>
+                                <td>K27+030</td>
+                                <td>167.8</td>
+                                <td>37.8</td>
+                                <td>37.7</td>
+                                <td>170.2</td> 
+                                <td></td>
+                                
+                              </tr>
+                              <tr>
+                                <td>新兖线</td>
+                                <td>龙泉村-塔铺</td>
+                                <td>下行</td>
+                                <td>K9+413</td>
+                                <td>169.8</td>
+                                <td>37.3</td>
+                                <td>38.0</td>
+                                <td>169.0</td> 
+                                <td></td> 
+                              </tr> 
+                            </tnody>
+                       </table>
+                       <table  class="table table-bordered table_equipment table_equipment12"> 
+                            <thead>
+                              <tr> 
+                                <th rowspan="2">区段</th>
+                                <th rowspan="2">公里标</th>
+                                <th rowspan="2">所亭名称</th>
+                                <th rowspan="2">电缆编号</th>
+                                <th rowspan="2" width="200px">连接部位（GIS柜与上网点间、GIS柜与供电线间、供电线与上网间）</th>
+                                <th rowspan="2">电缆长度（m）</th>
+                                <th rowspan="2">两端接地方式</th>
+                                <th colspan="3">电缆头</th>
+                                <th colspan="3">电缆</th>
+                              </tr>
+                              <tr> 
+                                <th>规格型号</th>
+                                <th>厂家</th>
+                                <th>投运日期</th>
+                                <th>规格型号</th>
+                                <th>厂家</th>
+                                <th>投运日期</th>
+                              </tr>
+                            </thead> 
+                       </table>
+                    </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="foot"> 
+                <button type="button" class="btn decoration_a " data-dismiss="modal">确定</button>
+                <button type="button" class="btn decoration_a decoration_ar" data-dismiss="modal">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+</div> 
+<script src="../js/charts_skin.js"></script> 
+<script src="js/index0.js"></script>
+</body>
+</html>
