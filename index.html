@@ -11,10 +11,30 @@
 <!-- <link rel="stylesheet" href="css/components.css"> -->
 <link rel="stylesheet" href="css/list.css">
 <link rel="stylesheet" href="css/default.css">
-<style>
-    .left-list{
-        display: none;
+<style>   
+    .logout{ 
+        float: right;
+        margin-right: 15px;
+        line-height: 46px;
+        cursor:pointer;
+        transition: all 0.6s;
     }
+        .logout:hover{
+            color:#ef8370; 
+        }
+        .logout:hover .user{
+            display: none;
+        }
+        .logout:hover .sign_out{
+            display: block;
+        }
+        .sign_out i , .user i{
+            margin-right: 5px;
+        }
+        .sign_out{
+            display: none;
+        }
+  
 </style>
 <body>
 <div class="head" id="head">
@@ -44,30 +64,11 @@
             <a>运行商部分</a>
         </li> 
     </ul>
-    <span class="logout"><i class="glyphicon glyphicon-log-out sign_out"></i>退出登录</span>
-</div>
-<!-- <div class="left-list">
-    <ul>
-        <li class="left-active">
-            <a>工务处填报</a>
-        </li>
-        <li>
-            <a>电务处填报</a>
-        </li>
-        <li>
-            <a>供电处填报</a>
-        </li>
-        <li>
-            <a>铁路局查询</a>
-        </li>
-        <li>
-            <a>总公司查询</a>
-        </li>
-        <li>
-            <a>填表时间统计</a>
-        </li> 
-    </ul>
-</div> -->   
+    <div class="logout"> 
+        <span class="user"><i class="glyphicon glyphicon-user "></i>用户名</span>
+        <span class="sign_out"><i class="glyphicon glyphicon-log-out "></i>退出登录</span>
+    </div>
+</div> 
 <div class="content"> 
     <iframe  name="content_frame" id="z" marginwidth=0 marginheight=0  src="./list/index0.html" frameborder=0></iframe> 
 </div>

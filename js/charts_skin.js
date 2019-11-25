@@ -375,7 +375,8 @@ var my_skin = {
             //y:-35,//调节y偏移
             // rotation:-45,//调节倾斜角度偏移
             style: {
-                color: '#01bee8',
+                // color: '#01bee8',
+                color: '#fff',
                 zIndex: -1,
                 // writingMode:'tb-rl'    //文字竖排样式
             },

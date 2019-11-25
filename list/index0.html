@@ -14,6 +14,25 @@
 <link rel="stylesheet" href="css/index0.css">  
 <body>
 <style>   
+/* body{
+  background: url('../img/t.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+} */
+body:before {
+    background: url('../img/t.jpg');
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;   
+    height: 100%;          
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-filter:blur(5px);
+    filter: blur(px);
+}
     .catenary2{
         display: none;
     }  
@@ -31,7 +50,8 @@
     }
     .content-chart-no .con-chart .mode-chart{  
         height:100%; 
-        background: #1e3a49 !important;
+        background:rgba(24, 88, 59, 0.6) !important;
+        /* background: #1e3a49 !important; */
         border:1px solid #285164;
         border-radius: 15px;
     }  
