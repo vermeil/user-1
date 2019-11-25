@@ -7,39 +7,231 @@
 <script src="../js/jquery-1.8.3.min.js"></script>
 <script src="../js/highcharts-V6.1.js"></script>  
 <script src="../laydate/laydate.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-
+<script src="../js/bootstrap.min.js"></script> 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/components.css"> 
-<link rel="stylesheet" href="../css/default.css">  
+<link rel="stylesheet" href="../css/default.css"> 
+<link rel="stylesheet" href="css/index1.css">  
 <body>
-<style>   
+<style>    
+.content{
+  padding: 25px 25px 0 25px;
+}
+
+    .title-name{
+      text-shadow: 0px 0px 30px rgb(0, 197, 255);
+      padding: 10px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      background: #213f51;
+      border: 1px solid rgb(83, 141, 173);
+      border-bottom: none;
+    }
+    .content .table > tbody > tr >th{ 
+        background: #155e80; 
+        line-height: 30px;
+        color: #ffffff;
+    } 
+    .content > .table td .btn{
+      transition: all 0.6s;
+      opacity: 0.9;
+    }
+      .content > .table td .btn:hover{ 
+        opacity: 1;
+        text-decoration: underline;
+      }
 </style>
-<div class="content">  
-   111
+<div class="content">   
+    <!-- 顶部筛选 -->
+    <div class="top-screen">
+      <div class="left-line"></div>
+      <div class="screen-body">
+        <input class="form-control w_220" type="text" >
+        <div class="btn btn-primary">查询</div> 
+        <div class="btn btn-success tr_add">新增</div>
+      </div>
+    </div>
+    
+    <table  class="table table-bordered">  
+        <div class="title-name">表名</div> 
+        <thead> 
+          <tr> 
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>字段1</th>
+              <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>55#</td>
+            <td>61#</td>
+            <td>F3</td>
+            <td>否</td>
+            <td>K3+376</td>
+            <td>K3+243</td>
+            <td>100</td>
+            <td>100</td> 
+            <td>100</td>
+            <td>100</td>
+            <td>200</td>
+            <td>200</td>
+            <td>100</td>
+            <td>100</td> 
+            <td>
+              <div><span class="btn color_g tr_modify">修改</span><span class="btn color_r tr_delete">删除</span></div>
+            </td>  
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>55#</td>
+            <td>61#</td>
+            <td>F3</td>
+            <td>否</td>
+            <td>K3+376</td>
+            <td>K3+243</td>
+            <td>100</td>
+            <td>100</td> 
+            <td>100</td>
+            <td>100</td>
+            <td>200</td>
+            <td>200</td>
+            <td>100</td>
+            <td>100</td> 
+            <td>
+              <div><span class="btn color_g tr_modify">修改</span><span class="btn color_r tr_delete">删除</span></div>
+            </td>  
+          </tr> 
+        </tnody>
+   </table>  
 </div>
 <!-- 弹窗 -->
-<div> 
+<div>
+    <!-- 增 -->
     <div class="modal fade bs-example-modal-lg" id="modal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog  modal-lgg" role="document">
+      <div class="modal-dialog  modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <div class="a_close btn btn-danger" data-dismiss="modal" aria-label="Close">X</div>
-            <h4 class="modal-title" ></h4>
+            <h4 class="modal-title"></h4>
           </div>
           <div class="modal-body"> 
-            <div class="top_body"> 
-                123321
+            <div class="top_body">   
+              <table  class="table table-bordered  ">  
+                  <tbody>
+                    <tr>
+                      <td>字段1</td>
+                      <td><input type="text" class="form-control"></td>
+                      <td>字段2</td>
+                      <td><input type="text" class="form-control"></td>
+                    </tr>   
+                    <tr>
+                        <td>字段3</td>
+                        <td colspan="3"><textarea  class="form-control h_100"></textarea> 
+                    </tr>  
+                    <tr>
+                      <td>字段4</td>
+                      <td><input type="text" class="form-control"></td>
+                      <td>字段5</td>
+                      <td><input type="text" class="form-control"></td>
+                    </tr>  
+                    <tr>
+                        <td>字段6</td>
+                        <td colspan="3"><textarea  class="form-control h_100"></textarea> 
+                    </tr>  
+                  </tnody>
+              </table>  
             </div>
             <div class="foot"> 
-                <button type="button" class="btn decoration_a ">确定</button>
+                <button type="button" class="btn decoration_a " data-dismiss="modal">确定</button>
                 <button type="button" class="btn decoration_a decoration_ar" data-dismiss="modal">取消</button>
             </div>
           </div>
         </div>
       </div>
     </div>  
+
+    <!-- 删 -->
+    <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog  modal-min" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="a_close btn btn-danger" data-dismiss="modal" aria-label="Close">X</div>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body"> 
+              <div class="top_body">   
+                <p style="margin: 15px 0 0 20px;">你确定要删除吗?</p>
+              </div>
+              <div class="foot"> 
+                  <button type="button" class="btn decoration_a " data-dismiss="modal">确定</button>
+                  <button type="button" class="btn decoration_a decoration_ar" data-dismiss="modal">取消</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+        
+    <!-- 改  -->
+    <div class="modal fade bs-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog  modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="a_close btn btn-danger" data-dismiss="modal" aria-label="Close">X</div>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body"> 
+                <div class="top_body">   
+                  <table  class="table table-bordered  ">  
+                      <tbody>
+                        <tr>
+                          <td>字段1</td>
+                          <td><input type="text" class="form-control" value="13215"></td>
+                          <td>字段2</td>
+                          <td><input type="text" class="form-control" value="13215"></td>
+                        </tr>   
+                        <tr>
+                            <td>字段3</td>
+                            <td colspan="3"><textarea  class="form-control h_100">asfasga3sd2fg43465465</textarea> 
+                        </tr>  
+                        <tr>
+                          <td>字段4</td>
+                          <td><input type="text" class="form-control" value="13215"></td>
+                          <td>字段5</td>
+                          <td><input type="text" class="form-control" value="13215"></td>
+                        </tr>  
+                        <tr>
+                            <td>字段6</td>
+                            <td colspan="3"><textarea  class="form-control h_100">asfasfasfasfas</textarea> 
+                        </tr>  
+                      </tnody>
+                  </table>  
+                </div>
+              <div class="foot"> 
+                  <button type="button" class="btn decoration_a " data-dismiss="modal">确定</button>
+                  <button type="button" class="btn decoration_a decoration_ar" data-dismiss="modal">取消</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+ 
 </div> 
 <script src="../js/charts_skin.js"></script> 
+<script src="js/index1.js"></script>
 </body>
 </html>
